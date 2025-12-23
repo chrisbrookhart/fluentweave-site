@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="FluentWeave helps you connect meaning across languages through reading and listening." />
+  <title>FluentWeave</title>
+
+  <style>
+    :root {
+      --bg: #0b0d12;
+      --card: rgba(255, 255, 255, 0.06);
+      --text: rgba(255, 255, 255, 0.92);
+      --muted: rgba(255, 255, 255, 0.68);
+      --border: rgba(255, 255, 255, 0.12);
+      --shadow: 0 10px 35px rgba(0,0,0,0.35);
+      --radius: 18px;
+      --maxw: 980px;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background:
+        radial-gradient(1200px 600px at 15% 10%, rgba(99,102,241,0.28), transparent 55%),
+        radial-gradient(900px 500px at 85% 20%, rgba(16,185,129,0.22), transparent 50%),
+        radial-gradient(900px 700px at 50% 95%, rgba(236,72,153,0.18), transparent 55%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    a {
+      color: var(--text);
+      text-underline-offset: 3px;
+    }
+    a:hover { opacity: 0.88; }
+
+    .wrap {
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: 28px 18px 42px;
+      min-height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 18px;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 10px 2px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .mark {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+    .mark::before, .mark::after {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background: conic-gradient(from 180deg, rgba(99,102,241,0.55), rgba(16,185,129,0.45), rgba(236,72,153,0.45), rgba(99,102,241,0.55));
+      filter: blur(10px);
+      opacity: 0.65;
+      transform: rotate(12deg);
+    }
+    .mark::after {
+      inset: 22%;
+      background: rgba(11,13,18,0.75);
+      border-radius: 10px;
+      filter: none;
+      opacity: 1;
+      transform: none;
+    }
+
+    .brand-name {
+      font-weight: 700;
+      letter-spacing: 0.2px;
+      font-size: 18px;
+    }
+
+    .nav {
+      display: flex;
+      gap: 16px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+    .nav a { color: var(--muted); text-decoration: none; }
+    .nav a:hover { color: var(--text); }
+
+    .hero {
+      border: 1px solid var(--border);
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 34px 28px;
+      backdrop-filter: blur(10px);
+    }
+
+    h1 {
+      margin: 0 0 12px;
+      font-size: clamp(28px, 4.2vw, 44px);
+      line-height: 1.12;
+      letter-spacing: -0.02em;
+    }
+
+    .sub {
+      margin: 0 0 18px;
+      font-size: clamp(16px, 2.1vw, 18px);
+      color: var(--muted);
+      max-width: 70ch;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.04);
+      color: var(--muted);
+      border-radius: 999px;
+      padding: 8px 12px;
+      font-size: 13px;
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 20px;
+      align-items: center;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 10px 14px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.08);
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+    }
+    .btn:hover { background: rgba(255,255,255,0.12); }
+
+    .btn.secondary {
+      background: rgba(255,255,255,0.03);
+      color: var(--muted);
+    }
+    .btn.secondary:hover {
+      background: rgba(255,255,255,0.06);
+      color: var(--text);
+    }
+
+    .fineprint {
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    footer {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 18px;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 4px 0;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+    .footer-links a { color: var(--muted); text-decoration: none; }
+    .footer-links a:hover { color: var(--text); }
+
+    @media (max-width: 560px) {
+      header { flex-direction: column; align-items: flex-start; }
+      .hero { padding: 26px 18px; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <header>
+      <a class="brand" href="/" aria-label="FluentWeave home">
+        <div class="mark" aria-hidden="true"></div>
+        <div class="brand-name">FluentWeave</div>
+      </a>
+
+      <nav class="nav" aria-label="Primary navigation">
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main class="hero" id="about">
+      <h1>FluentWeave™ connects meaning across languages.</h1>
+      <p class="sub">
+        A reading-and-listening experience designed to help adult learners build real comprehension—
+        by pairing text and audio in two languages and reinforcing the connections between them.
+      </p>
+
+      <div class="pill-row" aria-label="Key features">
+        <div class="pill">Parallel understanding</div>
+        <div class="pill">Read + listen</div>
+        <div class="pill">Bilingual stories</div>
+        <div class="pill">Built for consistency</div>
+      </div>
+
+      <div class="cta-row" id="contact">
+        <!-- Replace with your real email address once ready -->
+        <a class="btn" href="mailto:hello@fluentweave.com">Email: hello@fluentweave.com</a>
+
+        <!-- Optional: if you set up a mailing list later, link it here -->
+        <a class="btn secondary" href="#" onclick="alert('Mailing list coming soon.'); return false;">Join the waitlist</a>
+      </div>
+
+      <div class="fineprint">
+        FluentWeave is currently in development. Early access and initial book releases are coming soon.
+      </div>
+    </main>
+
+    <footer>
+      <div>© <span id="y"></span> KLAKK Enterprises LLC. FluentWeave™ is a trademark of KLAKK Enterprises LLC.</div>
+      <div class="footer-links">
+        <!-- Create these pages when ready -->
+        <a href="/privacy.html">Privacy</a>
+        <a href="/terms.html">Terms</a>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

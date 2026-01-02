@@ -68,29 +68,12 @@
       width: 40px;
       height: 40px;
       border-radius: 12px;
-      background: rgba(255,255,255,0.08);
       border: 1px solid var(--border);
       box-shadow: var(--shadow);
-      position: relative;
-      overflow: hidden;
+      object-fit: cover;
+      background: #111;
     }
-    .mark::before, .mark::after {
-      content: "";
-      position: absolute;
-      inset: -40%;
-      background: conic-gradient(from 180deg, rgba(99,102,241,0.55), rgba(16,185,129,0.45), rgba(236,72,153,0.45), rgba(99,102,241,0.55));
-      filter: blur(10px);
-      opacity: 0.65;
-      transform: rotate(12deg);
-    }
-    .mark::after {
-      inset: 22%;
-      background: rgba(11,13,18,0.75);
-      border-radius: 10px;
-      filter: none;
-      opacity: 1;
-      transform: none;
-    }
+
 
     .brand-name {
       font-weight: 700;
@@ -212,13 +195,19 @@
       .hero { padding: 26px 18px; }
     }
   </style>
+  <link rel="icon" type="image/png" href="/assets/app-icon.png">
+  <link rel="apple-touch-icon" href="/assets/app-icon.png">
 </head>
 
 <body>
   <div class="wrap">
     <header>
       <a class="brand" href="/" aria-label="FluentWeave home">
-        <div class="mark" aria-hidden="true"></div>
+        <img
+        src="/assets/app-icon.png"
+        alt="FluentWeave app icon"
+        class="mark"
+        />
         <div class="brand-name">FluentWeave</div>
       </a>
 

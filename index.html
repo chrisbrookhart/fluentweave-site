@@ -32,10 +32,7 @@
       line-height: 1.5;
     }
 
-    a {
-      color: var(--text);
-      text-underline-offset: 3px;
-    }
+    a { color: var(--text); text-underline-offset: 3px; }
     a:hover { opacity: 0.88; }
 
     .wrap {
@@ -170,37 +167,21 @@
       font-size: 13px;
     }
 
-    .grant {
-      margin-top: 28px;
-      padding-top: 18px;
-      border-top: 1px solid var(--border);
+    footer {
       display: flex;
       flex-direction: column;
-      align-items: center;
-      gap: 10px;
-      text-align: center;
-    }
-
-    .grant img {
-      width: 250px;
-      max-width: 80%;
-      height: auto;
-    }
-
-    .grant-caption {
-      font-size: 12px;
+      gap: 12px;
+      padding: 14px 4px 0;
       color: var(--muted);
+      font-size: 12px;
     }
 
-    footer {
+    .footer-row {
       display: flex;
       flex-wrap: wrap;
       gap: 10px 18px;
       align-items: center;
       justify-content: space-between;
-      padding: 14px 4px 0;
-      color: var(--muted);
-      font-size: 12px;
     }
 
     .footer-links {
@@ -211,9 +192,39 @@
     .footer-links a { color: var(--muted); text-decoration: none; }
     .footer-links a:hover { color: var(--text); }
 
+    /* ElevenLabs Grants badge
+       - No effects applied to the logo
+       - Provide ample clear space around it (padding)
+    */
+    .elevenlabs-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px;              /* “clearance” buffer around logo */
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: rgba(255,255,255,0.03);
+      max-width: 100%;
+    }
+
+    .elevenlabs-badge img {
+      width: 250px;
+      max-width: 70vw;
+      height: auto;
+      display: block;
+    }
+
+    .elevenlabs-badge .label {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.3;
+      max-width: 40ch;
+    }
+
     @media (max-width: 560px) {
       header { flex-direction: column; align-items: flex-start; }
       .hero { padding: 26px 18px; }
+      .elevenlabs-badge { flex-direction: column; align-items: flex-start; }
     }
   </style>
 
@@ -225,11 +236,16 @@
   <div class="wrap">
     <header>
       <a class="brand" href="/" aria-label="FluentWeave home">
-        <img src="/assets/app-icon.png" alt="FluentWeave app icon" class="mark" />
+        <img
+          src="/assets/app-icon.png"
+          alt="FluentWeave app icon"
+          class="mark"
+        />
         <div class="brand-name">FluentWeave</div>
       </a>
 
       <nav class="nav" aria-label="Primary navigation">
+        <a href="/news.html">News</a>
         <a href="/support.html">Support</a>
       </nav>
     </header>
@@ -250,6 +266,7 @@
 
       <div class="cta-row">
         <a class="btn" href="mailto:hello@fluentweave.com">Support: hello@fluentweave.com</a>
+
         <a class="btn secondary"
            href="mailto:waitlist@fluentweave.com?subject=FluentWeave%20Waitlist&body=Please%20add%20me%20to%20the%20FluentWeave%20waitlist.">
           Join the waitlist
@@ -259,24 +276,26 @@
       <div class="fineprint">
         FluentWeave is currently in development. Early access and initial book releases are coming soon.
       </div>
-
-      <!-- ElevenLabs grant acknowledgment -->
-      <div class="grant" aria-label="ElevenLabs Startup Grant">
-        <a href="https://elevenlabs.io/startup-grants" target="_blank" rel="noopener">
-          <img src="https://eleven-public-cdn.elevenlabs.io/payloadcms/cy7rxce8uki-IIElevenLabsGrants%201.webp"
-               alt="Supported by ElevenLabs Startup Grants">
-        </a>
-        <div class="grant-caption">
-          Supported by the ElevenLabs Startup Grant Program
-        </div>
-      </div>
     </main>
 
     <footer>
-      <div>© <span id="y"></span> KLAKK Enterprises LLC. FluentWeave™ is a trademark of KLAKK Enterprises LLC.</div>
-      <div class="footer-links">
-        <a href="/privacy.html">Privacy</a>
-        <a href="/terms.html">Terms</a>
+      <!-- Grants logo placement: bottom of homepage + link -->
+      <a class="elevenlabs-badge" href="https://elevenlabs.io/startup-grants" aria-label="ElevenLabs Startup Grants" rel="noopener noreferrer">
+        <img
+          src="https://eleven-public-cdn.elevenlabs.io/payloadcms/cy7rxce8uki-IIElevenLabsGrants%201.webp"
+          alt="ElevenLabs Grants"
+        />
+        <div class="label">
+          FluentWeave received support through the ElevenLabs Startup Grants program.
+        </div>
+      </a>
+
+      <div class="footer-row">
+        <div>© <span id="y"></span> KLAKK Enterprises LLC. FluentWeave™ is a trademark of KLAKK Enterprises LLC.</div>
+        <div class="footer-links">
+          <a href="/privacy.html">Privacy</a>
+          <a href="/terms.html">Terms</a>
+        </div>
       </div>
     </footer>
   </div>

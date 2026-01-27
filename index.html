@@ -74,7 +74,6 @@
       background: #111;
     }
 
-
     .brand-name {
       font-weight: 700;
       letter-spacing: 0.2px;
@@ -171,6 +170,28 @@
       font-size: 13px;
     }
 
+    .grant {
+      margin-top: 28px;
+      padding-top: 18px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      text-align: center;
+    }
+
+    .grant img {
+      width: 250px;
+      max-width: 80%;
+      height: auto;
+    }
+
+    .grant-caption {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
     footer {
       display: flex;
       flex-wrap: wrap;
@@ -195,6 +216,7 @@
       .hero { padding: 26px 18px; }
     }
   </style>
+
   <link rel="icon" type="image/png" href="/assets/app-icon.png">
   <link rel="apple-touch-icon" href="/assets/app-icon.png">
 </head>
@@ -203,17 +225,13 @@
   <div class="wrap">
     <header>
       <a class="brand" href="/" aria-label="FluentWeave home">
-        <img
-        src="/assets/app-icon.png"
-        alt="FluentWeave app icon"
-        class="mark"
-        />
+        <img src="/assets/app-icon.png" alt="FluentWeave app icon" class="mark" />
         <div class="brand-name">FluentWeave</div>
       </a>
 
-    <nav class="nav" aria-label="Primary navigation">
-      <a href="/support.html">Support</a>
-    </nav>
+      <nav class="nav" aria-label="Primary navigation">
+        <a href="/support.html">Support</a>
+      </nav>
     </header>
 
     <main class="hero" id="about">
@@ -232,25 +250,31 @@
 
       <div class="cta-row">
         <a class="btn" href="mailto:hello@fluentweave.com">Support: hello@fluentweave.com</a>
-
-
-        <!-- Optional: if you set up a mailing list later, link it here -->
         <a class="btn secondary"
-         href="mailto:waitlist@fluentweave.com?subject=FluentWeave%20Waitlist&body=Please%20add%20me%20to%20the%20FluentWeave%20waitlist.">
-        Join the waitlist
+           href="mailto:waitlist@fluentweave.com?subject=FluentWeave%20Waitlist&body=Please%20add%20me%20to%20the%20FluentWeave%20waitlist.">
+          Join the waitlist
         </a>
-
       </div>
 
       <div class="fineprint">
         FluentWeave is currently in development. Early access and initial book releases are coming soon.
+      </div>
+
+      <!-- ElevenLabs grant acknowledgment -->
+      <div class="grant" aria-label="ElevenLabs Startup Grant">
+        <a href="https://elevenlabs.io/startup-grants" target="_blank" rel="noopener">
+          <img src="https://eleven-public-cdn.elevenlabs.io/payloadcms/cy7rxce8uki-IIElevenLabsGrants%201.webp"
+               alt="Supported by ElevenLabs Startup Grants">
+        </a>
+        <div class="grant-caption">
+          Supported by the ElevenLabs Startup Grant Program
+        </div>
       </div>
     </main>
 
     <footer>
       <div>© <span id="y"></span> KLAKK Enterprises LLC. FluentWeave™ is a trademark of KLAKK Enterprises LLC.</div>
       <div class="footer-links">
-        <!-- Create these pages when ready -->
         <a href="/privacy.html">Privacy</a>
         <a href="/terms.html">Terms</a>
       </div>
